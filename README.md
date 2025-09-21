@@ -23,3 +23,5 @@ For example, to add the UART transmitter:
 
 ```bash
 vpm include https://github.com/<your-username>/<repo-name>/uart_tx
+
+Please refer to the included GitHub link for more detailed commands.
