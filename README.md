@@ -4,7 +4,6 @@ This repository contains a collection of reusable Verilog modules commonly used 
 Each module is located in its own folder with:
 - The Verilog source file (`.v`)
 - A README with usage instructions and pinout
-- (Optional) a testbench for simulation
 
 ---
 
