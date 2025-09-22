@@ -29,7 +29,6 @@ reg clk = 1;
 reg enable = 0;  //enable signal must only be triggered on the rising edge of the clock
 wire done;
     
-    
 delay_timer #(
     .DELAY_PERIOD(500)
 ) inst (
