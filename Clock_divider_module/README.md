@@ -10,6 +10,7 @@ Clock divider is a simple clock divider module implemented in verilog. The clock
 | Signal                | Direction | Width | Description                         |
 |-----------------------|-----------|-------|-------------------------------------|
 | clk                   | Input     | 1     | System clock                        |
+| enable                | Inupt     | 1     | Enable signal to start divider      |
 | divider_clock_signal  | Output    | 1     | Output divided clock signal         |
 
 ---
@@ -25,13 +26,14 @@ Clock divider is a simple clock divider module implemented in verilog. The clock
 ## Sample Top Module
 
 ```verilog
-reg clk = 0;
+reg  clk = 0;
+reg  enable = 0;
 wire divider_clock_signal;
-
     
 clock_divider #(
     .CLOCK_PERIOD(40)
 )inst (
     .clk(clk),
-    .divider_clock_signal(divider_clock_signal)
+    .enable(enable),
+    .divided_clk_out(divider_clock_signal)
 );
