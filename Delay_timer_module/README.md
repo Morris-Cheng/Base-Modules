@@ -1,25 +1,25 @@
-# Clock divider
+# Delay Timer
 
 ## Overview
-Clock divider is a simple clock divider module implemented in verilog. The clock divider can be customized to fit any clocks and produce the given clock periods.
+Delay timer is a simple verilog module that can delay a given amount of time before flipping the trigger signal.
 
 ---
 
 ## Pinout
 
-| Signal                | Direction | Width | Description                         |
-|-----------------------|-----------|-------|-------------------------------------|
-| clk                   | Input     | 1     | System clock                        |
-| enable                | Inupt     | 1     | Enable signal to start divider      |
-| divider_clock_signal  | Output    | 1     | Output divided clock signal         |
+| Signal     | Direction | Width | Description                           |
+|------------|-----------|-------|---------------------------------------|
+| clk        | Input     | 1     | System clock                          |
+| enable     | Inupt     | 1     | Enable signal to start divider        |
+| done       | Output    | 1     | Done trigger after the delay is over  |
 
 ---
 
 ## Parameters
-| Name         | Default | Description                                  |
-|--------------|---------|----------------------------------------------|
-| CLOCK_PERIOD_| 0       | Divided clock period needed to be produced   |
-| CYCLE_TIME   | 10      | System clock frequency (s)                   |
+| Name         | Default | Description                 |
+|--------------|---------|-----------------------------|
+| DELAY_PERIOD_| 0       | Delay period                |
+| CYCLE_TIME   | 10      | System clock frequency (s)  |
 
 ---
 
