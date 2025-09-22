@@ -9,8 +9,10 @@ Each module is located in its own folder with:
 
 ## 📂 Available Modules
 
-- [UART Transmitter (uart_tx)](./uart_tx) – Serial data transmitter
-- [UART Receiver (uart_rx)](./uart_rx) – Serial data receiver
+- [Clock divider](https://github.com/Morris-Cheng/Base-Modules/blob/main/Clock_divider_module/clock_divider.v) - Clock divider
+- [Delay timer](https://github.com/Morris-Cheng/Base-Modules/blob/main/Delay_timer_module/delay_timer.v) - Delay timer
+- [UART Receiver (uart_rx)](https://github.com/Morris-Cheng/Base-Modules/blob/main/UART_rx_module/uart_rx.v) – Serial data receiver
+- [UART Transmitter (uart_tx)](https://github.com/Morris-Cheng/Base-Modules/blob/main/UART_tx_module/uart_tx.v) – Serial data transmitter
 - (More modules coming soon...)
 
 ---
