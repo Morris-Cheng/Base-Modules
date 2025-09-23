@@ -14,9 +14,11 @@ module delay_timer #(
     
     reg [$clog2(DELAY_CYCLE + 1) - 1 : 0] delay_cycle_counter = 0;
     reg done_reg = 0;
+    reg enable_flag = 0;
     
     always @(posedge clk) begin
-        if(enable) begin
+        if(enable || enable_flag) begin
+            enable_flag <= 1;
             if(delay_cycle_counter >= DELAY_CYCLE) begin
                 done_reg <= 1;
             end
@@ -26,6 +28,7 @@ module delay_timer #(
         end
         else begin
             done_reg <= 0;
+            enable_flag <= 0;
             delay_cycle_counter <= 0;
         end
     end
