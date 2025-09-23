@@ -16,10 +16,10 @@ Delay timer is a simple verilog module that can delay a given amount of time bef
 ---
 
 ## Parameters
-| Name         | Default | Description                 |
-|--------------|---------|-----------------------------|
-| DELAY_PERIOD_| 0       | Delay period (ns)           |
-| CYCLE_TIME   | 10      | System clock frequency (ns) |
+| Name         | Default | Description              |
+|--------------|---------|--------------------------|
+| DELAY_PERIOD_| 0       | Delay period (ns)        |
+| CYCLE_TIME   | 10      | System clock period (ns) |
 
 ---
 
