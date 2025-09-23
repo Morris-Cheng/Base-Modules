@@ -18,8 +18,8 @@ Clock divider is a simple clock divider module implemented in verilog. The clock
 ## Parameters
 | Name         | Default | Description                                     |
 |--------------|---------|-------------------------------------------------|
-| CLOCK_PERIOD | 0       | Divided clock period needed to be produced (s)  |
-| CYCLE_TIME   | 10      | System clock frequency (s)                      |
+| CLOCK_PERIOD | 0       | Divided clock period needed to be produced (ns) |
+| CYCLE_TIME   | 10      | System clock frequency (ns)                     |
 
 ---
 
