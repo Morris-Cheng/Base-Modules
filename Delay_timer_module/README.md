@@ -1,7 +1,7 @@
 # Delay Timer
 
 ## Overview
-Delay timer is a simple verilog module that can delay a given amount of time before flipping the trigger signal. The enable signal can be either a pulse or a hold signal.
+Delay timer is a simple verilog module that can delay a given amount of time before flipping the trigger signal. The delay timer can be triggered with a rising edge from the enable signal, meaning both a hold signal and a pulse can be used.
 
 ---
 
