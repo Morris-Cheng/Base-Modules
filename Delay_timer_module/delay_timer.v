@@ -6,32 +6,36 @@ module delay_timer #(
     )(
         input  wire clk,
         input  wire enable,
-        output wire done
+        output reg  done
     );
     
     //calculate the number of cycles needed to reach the desired delay time
     localparam DELAY_CYCLE = DELAY_PERIOD / CYCLE_TIME;
     
-    reg [$clog2(DELAY_CYCLE + 1) - 1 : 0] delay_cycle_counter = 0;
-    reg done_reg = 0;
-    reg enable_flag = 0;
+    reg [$clog2(DELAY_CYCLE + 1) - 1 : 0] delay_counter = 0;
+    reg previous_enable = 0;
+    wire enable_rising_edge;
     
     always @(posedge clk) begin
-        if(enable || enable_flag) begin
-            enable_flag <= 1;
-            if(delay_cycle_counter >= DELAY_CYCLE) begin
-                done_reg <= 1;
-            end
-            else begin
-                delay_cycle_counter <= delay_cycle_counter + 1;
-            end
+        done <= 0;
+        
+        if (enable_rising_edge) begin
+            delay_counter <= DELAY_CYCLE;
+            done <= 0;
+        end
+        else if (delay_counter > 1) begin
+            delay_counter <= delay_counter - 1;
+        end
+        else if (delay_counter == 1) begin
+            delay_counter <= 0;
+            done <= 1;
         end
         else begin
-            done_reg <= 0;
-            enable_flag <= 0;
-            delay_cycle_counter <= 0;
+            delay_counter <= 0;
         end
+        
+        previous_enable <= enable;
     end
     
-    assign done = done_reg;
+    assign enable_rising_edge = enable & ~previous_enable;
 endmodule
