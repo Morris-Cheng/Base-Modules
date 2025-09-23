@@ -7,11 +7,11 @@ Delay timer is a simple verilog module that can delay a given amount of time bef
 
 ## Pinout
 
-| Signal     | Direction | Width | Description                           |
-|------------|-----------|-------|---------------------------------------|
-| clk        | Input     | 1     | System clock                          |
-| enable     | Inupt     | 1     | Enable signal to start divider        |
-| done       | Output    | 1     | Done trigger after the delay is over  |
+| Signal     | Direction | Width | Description                             |
+|------------|-----------|-------|-----------------------------------------|
+| clk        | Input     | 1     | System clock                            |
+| enable     | Inupt     | 1     | Enable signal to start divider          |
+| done       | Output    | 1     | Done indicator after the delay is over  |
 
 ---
 
