@@ -1,25 +1,17 @@
-# Clock divider
+# Pulse Generator
 
 ## Overview
-Clock divider is a simple clock divider module implemented in verilog. The clock divider can be customized to fit any clocks and produce the given clock periods.
+Pulse generator is a verilog module that can create a single clock cycle pulse module. 
 
 ---
 
 ## Pinout
 
-| Signal                | Direction | Width | Description                         |
-|-----------------------|-----------|-------|-------------------------------------|
-| clk                   | Input     | 1     | System clock                        |
-| enable                | Inupt     | 1     | Enable signal to start divider      |
-| divider_clock_signal  | Output    | 1     | Output divided clock signal         |
-
----
-
-## Parameters
-| Name         | Default | Description                                     |
-|--------------|---------|-------------------------------------------------|
-| CLOCK_PERIOD | 0       | Divided clock period needed to be produced (ns) |
-| CYCLE_TIME   | 10      | System clock frequency (ns)                     |
+| Signal   | Direction | Width | Description                         |
+|----------|-----------|-------|-------------------------------------|
+| clk      | Input     | 1     | System clock                        |
+| enable   | Inupt     | 1     | Enable signal to start divider      |
+| trigger  | Output    | 1     | Output trigger signal               |
 
 ---
 
@@ -27,13 +19,11 @@ Clock divider is a simple clock divider module implemented in verilog. The clock
 
 ```verilog
 reg  clk = 0;
-reg  enable = 0;
-wire divider_clock_signal;
+wire trigger;
+reg enable = 0;
     
-clock_divider #(
-    .CLOCK_PERIOD(40)
-)inst (
+pulse inst(
     .clk(clk),
     .enable(enable),
-    .divided_clk_out(divider_clock_signal)
+    .trigger(trigger)
 );
