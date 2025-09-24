@@ -30,7 +30,8 @@ reg enable = 0;  //enable signal must only be triggered on the rising edge of th
 wire done;
     
 delay_timer #(
-    .DELAY_PERIOD(500)
+    .DELAY_PERIOD(500),
+    .CYCLE_TIME(10)
 ) inst (
     .clk(clk),
     .enable(enable),
