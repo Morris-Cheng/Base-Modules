@@ -1,7 +1,7 @@
 # Clock divider
 
 ## Overview
-Clock divider is a simple clock divider module implemented in verilog. The clock divider can be customized to fit any clocks and produce the given clock periods.
+Clock divider is a simple clock divider module implemented in verilog. The clock divider can be customized to fit any system clock and also select its idle state to either be low or high.
 
 ---
 
@@ -18,7 +18,7 @@ Clock divider is a simple clock divider module implemented in verilog. The clock
 ## Parameters
 |--------------|---------|--------------------------------------------------------|
 | CLOCK_PERIOD | 0       | Divided clock period needed to be produced (ns)        |
-| CYCLE_TIME   | 10      | System clock frequency (ns)                            |
+| CYCLE_TIME   | 10      | System clock period (ns)                               |
 | MODE         | 0       | Mode selection for idle state: 0 for low, 1 for high   |
 
 ---
@@ -31,7 +31,9 @@ reg  enable = 0;
 wire divider_clock_signal;
     
 clock_divider #(
-    .CLOCK_PERIOD(40)
+    .CLOCK_PERIOD(40),  //Wait for 40 ns
+    .CYCLE_TIME(10),    //100MHz clock
+    .MODE(0)            //Idle state set to low
 )inst (
     .clk(clk),
     .enable(enable),
