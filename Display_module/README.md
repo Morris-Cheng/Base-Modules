@@ -11,8 +11,8 @@ The display driver is used to control a four-digit 7-segment display.
 |------------|-----------|-------|-------------------------|
 | clk        | Input     | 1     | System clock            |
 | value      | Inupt     | N     | Value being displayed   |
-| seg        | Output    | 1     | Segment pattern         |
-| an         | Output    | 1     | Digit being shown       |
+| seg        | Output    | 8     | Segment pattern         |
+| an         | Output    | 4     | Digit being shown       |
 
 ---
 
@@ -27,8 +27,8 @@ The display driver is used to control a four-digit 7-segment display.
 ```verilog
 reg clk;
 reg [15:0] value;
-wire seg;
-wire an;
+wire [7:0] seg;
+wire [3:0] an;
 
 display #(
     .N(16)
