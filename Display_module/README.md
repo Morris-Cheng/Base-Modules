@@ -10,18 +10,16 @@ The display driver is used to control a four-digit 7-segment display.
 | Signal     | Direction | Width | Description             |
 |------------|-----------|-------|-------------------------|
 | clk        | Input     | 1     | System clock            |
-| value      | Inupt     | 1     | Value being displayed   |
+| value      | Inupt     | N     | Value being displayed   |
 | seg        | Output    | 1     | Segment pattern         |
 | an         | Output    | 1     | Digit being shown       |
 
 ---
 
 ## Parameters
-| Name         | Default | Description              |
-|--------------|---------|--------------------------|
-| DELAY_PERIOD | 0       | Delay period (ns)        |
-| CYCLE_TIME   | 10      | System clock period (ns) |
-| ROUND_MODE   | 0       | Rounding mode selection  |
+| Name         | Default | Description                  |
+|--------------|---------|------------------------------|
+| N            | 0       | Bit size of the input value  |
 
 ---
 
