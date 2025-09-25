@@ -11,6 +11,7 @@ Each module is located in its own folder with:
 
 - [Clock divider](https://github.com/Morris-Cheng/Base-Modules/tree/main/Clock_divider_module) - Clock divider
 - [Delay timer](https://github.com/Morris-Cheng/Base-Modules/tree/main/Delay_timer_module) - Delay timer
+- [Display Driver](https://github.com/Morris-Cheng/Base-Modules/tree/main/Display_module) - 7 segment display driver
 - [Pulse Generator](https://github.com/Morris-Cheng/Base-Modules/tree/main/Pulse_module) - Pulse Generator
 - [UART Receiver (uart_rx)](https://github.com/Morris-Cheng/Base-Modules/tree/main/UART_rx_module) – Serial data receiver
 - [UART Transmitter (uart_tx)](https://github.com/Morris-Cheng/Base-Modules/tree/main/UART_tx_module) – Serial data transmitter
