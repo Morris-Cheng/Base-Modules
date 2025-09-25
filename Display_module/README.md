@@ -25,16 +25,16 @@ The display driver is used to control a four-digit 7-segment display.
 
 ## Sample Top Module
 ```verilog
-reg clk = 1;
-reg enable = 0;  //enable signal must only be triggered on the rising edge of the clock
-wire done;
-    
-delay_timer #(
-    .DELAY_PERIOD(500),
-    .CYCLE_TIME(10),
-    .ROUND_MODE(0)
-) inst (
+reg clk;
+reg [15:0] value;
+wire seg;
+wire an;
+
+display #(
+    .N(16)
+) display_inst(
     .clk(clk),
-    .enable(enable),
-    .done(done)
+    .value(value),
+    .seg(seg),
+    .an(an)
 );
