@@ -1,6 +1,8 @@
-module display(
+module display #(
+    parameter N = 0
+)(
     input  wire       clk,
-    input  wire [11:0] value,
+    input  wire [N-1:0] value,
     output reg  [7:0]  seg,
     output reg  [3:0]  an
 );
