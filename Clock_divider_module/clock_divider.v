@@ -3,7 +3,8 @@
 module clock_divider #(
         parameter CLOCK_PERIOD = 0,
         parameter CYCLE_TIME   = 10,   //time required for each clock complete cycle
-        parameter MODE         = 0     //mode select for idle state: 0 for low and 1 for high
+        parameter MODE         = 0,    //mode select for idle state: 0 for low and 1 for high
+        parameter ROUND_MODE   = 0     //node select for rouding up or down: 0 for down and 1 for up
     )(
         input   wire clk,
         input   wire enable,        //enable signal to start the clock divider
@@ -11,7 +12,8 @@ module clock_divider #(
     );
         
     //converting the clock period to number of cycles
-    localparam CLOCK_DIVIDER_CYCLE = (CLOCK_PERIOD / CYCLE_TIME / 2) - 1;
+    localparam CLOCK_DIVIDER_CYCLE = (ROUND_MODE == 0) ? (CLOCK_PERIOD / (CYCLE_TIME * 2)) - 1 :                         // round down
+                                                         ((CLOCK_PERIOD + (CYCLE_TIME * 2) - 1) / (CYCLE_TIME * 2)) - 1; // round up
     
     reg divided_clk_reg = MODE;
     reg [$clog2(CLOCK_DIVIDER_CYCLE + 1) - 1 : 0] clock_divider_counter = 0;
