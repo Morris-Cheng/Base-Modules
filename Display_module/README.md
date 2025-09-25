@@ -7,12 +7,12 @@ The display driver is used to control a four-digit 7-segment display.
 
 ## Pinout
 
-| Signal     | Direction | Width | Description                             |
-|------------|-----------|-------|-----------------------------------------|
-| clk        | Input     | 1     | System clock                            |
-| value      | Inupt     | 1     | Enable signal to start divider          |
-| seg        | Output    | 1     | Done indicator after the delay is over  |
-| an         | Output    | 1     | Done indicator after the delay is over  |
+| Signal     | Direction | Width | Description             |
+|------------|-----------|-------|-------------------------|
+| clk        | Input     | 1     | System clock            |
+| value      | Inupt     | 1     | Value being displayed   |
+| seg        | Output    | 1     | Segment pattern         |
+| an         | Output    | 1     | Digit being shown       |
 
 ---
 
