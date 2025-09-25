@@ -12,12 +12,8 @@ module display #(
     reg [3:0]  digits [3:0];
     integer    temp;
 
-
-
     // Slow down digit refresh for flicker-free display (~1ms)
     always @(posedge clk) begin
-    
-    
         if (digit_counter >= 19'd100_000) begin // (約1ms/輪，視你FPGA主頻可再微調)
             cur_digit    <= cur_digit + 1;
             digit_counter <= 0;
@@ -62,5 +58,4 @@ module display #(
             default: seg = 8'hFF;
         endcase
     end
-
 endmodule
