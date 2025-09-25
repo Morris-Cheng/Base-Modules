@@ -15,7 +15,7 @@ module delay_timer #(
     wire enable_rising_edge;
     
     generate
-        if(DELAY_PERIOD == 0) begin : zero_delay_block
+        if(DELAY_PERIOD == 0 || (ROUND_MODE == 0 && DELAY_PERIOD / CYCLE_TIME == 0)) begin : zero_delay_block
             always @(posedge clk) begin
                 if(enable_rising_edge) begin
                     done_reg <= 1;
