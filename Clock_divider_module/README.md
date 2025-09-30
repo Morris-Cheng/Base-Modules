@@ -35,7 +35,7 @@ wire divider_clock_signal;
 clock_divider #(
     .CLOCK_PERIOD(40),  //Wait for 40 ns
     .CYCLE_TIME(10),    //100MHz clock
-    .MODE(0)            //Idle state set to low
+    .MODE(0),           //Idle state set to low
     .ROUND_MODE(0)      //Set to round down
 )inst (
     .clk(clk),
