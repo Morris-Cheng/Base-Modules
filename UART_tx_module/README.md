@@ -50,8 +50,6 @@ module top_module(
         .o_busy(busy)
     );
     
-    reg [15:0] value_being_sent = 0;
-    
     //tx block used to send data back to the computer
     always @(posedge clk) begin
         send_pulse <= 0;
