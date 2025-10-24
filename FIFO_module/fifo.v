@@ -11,12 +11,10 @@ module fifo #(
         input  wire rd_signal,
         
         input  wire [ADDR_WIDTH-1 : 0] write_data,
-        output reg [ADDR_WIDTH-1 : 0] read_data,
+        output reg  [ADDR_WIDTH-1 : 0] read_data,
         
         output wire empty_out,
-        output wire full_out,
-        
-        output reg [$clog2(BUFFER_WIDTH) : 0] read_pointer //debug
+        output wire full_out
     );
     
     localparam BW = $clog2(BUFFER_WIDTH);
@@ -47,8 +45,6 @@ module fifo #(
     end
     
     always @(posedge clk) begin : read_data_block
-        read_pointer <= rd_pointer;
-    
         if(reset) begin
             rd_pointer <= 0;
         end
