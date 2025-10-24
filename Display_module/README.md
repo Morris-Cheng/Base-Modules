@@ -25,10 +25,10 @@ The display driver is used to control a four-digit 7-segment display.
 
 ## Sample Top Module
 ```verilog
-reg clk;
-reg [15:0] value;
-wire [7:0] seg;
-wire [3:0] an;
+reg         clk;
+reg  [15:0] value;
+wire [7:0]  seg;
+wire [3:0]  an;
 
 display #(
     .N(16)
