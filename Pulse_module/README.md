@@ -18,9 +18,9 @@ Pulse generator is a verilog module that can create a single clock cycle pulse m
 ## Sample Top Module
 
 ```verilog
-reg  clk = 0;
+reg  clk      = 0;
 wire trigger;
-reg enable = 0;
+reg  enable   = 0;
     
 pulse inst(
     .clk(clk),
