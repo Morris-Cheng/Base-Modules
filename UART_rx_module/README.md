@@ -46,6 +46,6 @@ reg signed [15:0] received_value; //this can be either signed or unsigned, depen
 //updating the measured height with either the user input or the control signal
 always @(posedge clk) begin
     if(rx_ready) begin
-	received_value <= rx_value;
+		received_value <= rx_value;
     end
 end
