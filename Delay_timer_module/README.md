@@ -26,7 +26,7 @@ Delay timer is a simple verilog module that can delay a given amount of time bef
 
 ## Sample Top Module
 ```verilog
-reg clk = 1;
+reg clk    = 1;
 reg enable = 0;  //enable signal must only be triggered on the rising edge of the clock
 wire done;
     
