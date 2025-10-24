@@ -53,22 +53,56 @@ module top_module(
     //tx block used to send data back to the computer
     always @(posedge clk) begin
         send_pulse <= 0;
+        
         case(state)
-            0: if (!busy) begin
-                out_data <= 8'hFF;
-                send_pulse <= 1; 
+            0: begin : idle_state
+                send_pulse <= 1;
                 state <= 1;
             end
-            1: if (!busy) begin
-                out_data <= value_being_sent[7:0]; //forms the low byte that's being sent first
-                send_pulse <= 1; 
-                state <= 2;
+        
+            1: begin : header_send
+                if (busy_falling) begin
+                    out_data <= 8'hFF;
+                    send_pulse <= 1;
+                    state <= 2;
+                end
+                else begin
+                    out_data <= out_data;
+                    state <= 1;
+                end
             end
-            2: if (!busy) begin
-                out_data <= value_being_sent[15:8]; //forms the high byte that's being sent next
-                send_pulse <= 1; 
+            
+            2: begin : low_byte_send
+                if (busy_falling) begin
+                    out_data <= value_being_sent[7:0]; //forms the low byte that's being sent first
+                    send_pulse <= 1; 
+                    state <= 3;
+                end
+                else begin
+                    out_data <= out_data;
+                    state <= 2;
+                end
+            end
+            
+            3: begin : high_byte_send
+                if (busy_falling) begin
+                    out_data <= value_being_sent[15:8]; //forms the high byte that's being sent next
+                    send_pulse <= 1; 
+                    state <= 0;
+                end
+                else begin
+                    out_data <= out_data;
+                    state <= 3;
+                end
+            end
+            
+            default: begin : default_state
                 state <= 0;
+                out_data <= 0;
+                send_pulse <= 0;
+                rd_signal <= rd_signal;
             end
         endcase
+        busy_d <= busy;
     end
 endmodule
