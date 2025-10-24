@@ -1,7 +1,7 @@
 # FIFO Buffer ('fifo')
 
 ## Overview
-FIFO is a data buffer that allows data to be written into and read out of at different clock speeds. However, this design is only for synchronous clocks.
+FIFO is a data buffer that allows data to be written into and read out of at different clock speeds. However, this design is only for synchronous buffers.
 
 ---
 
