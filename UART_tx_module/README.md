@@ -41,6 +41,8 @@ module top_module(
     reg        send_pulse = 0;      //sending pulse
     reg [15:0] value_being_sent = 0;
     wire       busy;                //busy signal of the tx line
+    reg busy_d = 0;
+    wire busy_falling = ~busy && busy_d;
     
     uart_tx uart_tx_inst(
         .clk(clk), 
