@@ -27,6 +27,7 @@ module fifo #(
     reg [ADDR_WIDTH-1 : 0] data_buffer [BUFFER_WIDTH - 1 : 0];
     
     assign empty = (wr_pointer == rd_pointer);
+    assign empty_out = empty;
     
     wire full = (wr_pointer[BW] != rd_pointer[BW]) && (wr_pointer[BW-1:0] == rd_pointer[BW-1:0]);
 
