@@ -16,8 +16,8 @@ Delay timer is a simple verilog module that can delay a given amount of time bef
 ---
 
 ## Parameters
-| Name         | Default | Description              |
-|--------------|---------|--------------------------|
-| DELAY_PERIOD | 0       | Delay period (ns)        |
-| CYCLE_TIME   | 10      | System clock period (ns) |
-| ROUND_MODE   | 0       | Rounding mode selection  |
+| Name             | Default | Description              |
+|------------------|---------|--------------------------|
+| CLOCK_CYCLE_TIME | 0       | System clock period (ns) |
+| DELAY_PERIOD     | 0       | Delay period (ns)        |
+| ROUND_MODE       | 0       | Rounding mode selection  |
