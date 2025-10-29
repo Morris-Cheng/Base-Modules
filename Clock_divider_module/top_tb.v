@@ -7,7 +7,7 @@ module top_tb();
     
     clock_divider #(
         .CLOCK_CYCLE_TIME(10),     //using system clock of 100MHz
-        .NEW_CLOCK_CYCLE_TIME(30), //divided clock FULL period: 30ns
+        .NEW_CLOCK_CYCLE_TIME(30), //divided clock HALF period: 30ns
         .IDLE_STATE(0),            //set idle state to 0 (LOW)
         .ROUND_MODE(1)             //set round mode to round UP
     ) clock_divider_inst(
