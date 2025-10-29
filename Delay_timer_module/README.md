@@ -21,21 +21,3 @@ Delay timer is a simple verilog module that can delay a given amount of time bef
 | DELAY_PERIOD | 0       | Delay period (ns)        |
 | CYCLE_TIME   | 10      | System clock period (ns) |
 | ROUND_MODE   | 0       | Rounding mode selection  |
-
----
-
-## Sample Top Module
-```verilog
-reg clk    = 1;
-reg enable = 0;  //enable signal must only be triggered on the rising edge of the clock
-wire done;
-    
-delay_timer #(
-    .DELAY_PERIOD(500),
-    .CYCLE_TIME(10),
-    .ROUND_MODE(0)
-) inst (
-    .clk(clk),
-    .enable(enable),
-    .done(done)
-);
